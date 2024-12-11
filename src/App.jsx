@@ -54,10 +54,12 @@ export default function Game() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
   const xIsNext = currentMove % 2 === 0;
-  const currentSquares = history[history.length - 1];
+  const currentSquares = history[currentMove];
   
   function jumpTo(nextMove) {
     setCurrentMove(nextMove);
+    // setXIsNext(nextMove % 2 === 0);
+    nextMove == 0 ? setHistory([Array(9).fill(null)]) : false;
   }
 
   function handlePlay(nextSquares) {
@@ -71,7 +73,7 @@ export default function Game() {
     if (move > 0) {
       description = 'Go to move #' + move;
     } else {
-      description = 'Go to game start';
+      description = 'Game Start / Reset';
     }
 
     return (
