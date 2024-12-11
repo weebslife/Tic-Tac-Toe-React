@@ -78,20 +78,25 @@ export default function Game() {
 
     return (
       <li key={move}>
-        <button onClick={() => jumpTo(move)}>{description}</button>
+        <button className='pastel-button' onClick={() => jumpTo(move)}>{description}</button>
       </li>
     )
   })
 
   return (
-    <div className='game'>
-      <div className='game-board'>
-        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+    <>
+      <p className='fixedPrev'><a href="/project" className='backWard'>← Back to Project</a></p>
+      <div className='game'>
+        <h1 className='textCenter'>Tic Tac Toe APP</h1>
+        <div className='game-board'>
+          <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+        </div>
+        <h2 className="history">History</h2>
+        <div className="game-info">
+          <ol>{moves}</ol>
+        </div>
       </div>
-      <div className="game-info">
-        <ol>{moves}</ol>
-      </div>
-    </div>
+    </>
   )
 }
 
